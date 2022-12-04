@@ -11,6 +11,15 @@ async function main() {
     await simpleStorage.deployed();
 
     console.log(`SimpleStorage deployed to ${simpleStorage.address}`);
+
+    const value = await simpleStorage.retrieve();
+    console.log(`The cuurent value is ${value}`);
+
+    const tx = await simpleStorage.store(5);
+    await tx.wait();
+    console.log(
+        `The value is now changed to ${await simpleStorage.retrieve()}`
+    );
 }
 
 // main
