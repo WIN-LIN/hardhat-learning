@@ -29,4 +29,22 @@
 
 #### Etherscan: verify contracts
 
--
+-   `yarn add --dev @nomiclabs/hardhat-etherscan`: add etherscan plugin
+-   到 [etherscan](https://etherscan.io/) 申請 API key
+-   `.env` 設定 API key
+-   `hardhat.config.js` 設定 etherscan plugin
+    -   `require("@nomiclabs/hardhat-etherscan");`
+    -   之後 `yarn hardhat` task 就會多出一個 `verify` 指令
+-   `yarn hardhat verify --network goerli <contract address>`
+-   or write script to verify: `run("verify:verify", { address: <contract address>, constructorArguments: [] });`)`
+
+#### Custom Task
+
+-   建立 `tasks` 資料夾
+-   import: `const { task } = require("hardhat/config");`
+-   define tasks
+-   在 `hardhat.config.js` 設定 task
+    -   `require("./tasks/{taskFile}");`
+-   run task: `yarn hardhat {taskName}`
+
+### 5. Write Test 9:27:33
